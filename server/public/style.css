@@ -1,0 +1,54 @@
+.title {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 100px;
+    width: 100%;
+    background-color: #929C85;
+    text-align: center;
+}
+
+.numbers {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.formTitle {
+    margin-top: 20px;
+    text-align: center;
+    align-content: center;
+    height: 50px;
+    width: 100%;
+    background-color: #e2dda2;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.totalCalc{
+   background-color: #FCDC3B; 
+}
+
+.autoCalc{
+    background-color: #CD9B9B;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.formSheet {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.buttonInside{
+    position:relative;
+    margin-bottom:10px;
+  }

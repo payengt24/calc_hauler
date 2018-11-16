@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- <div class="container"> -->
+    <div class="row">
+        <div class="title col-12 ">
+            <h1>Hauler R.O.I. Calculator</h1>
+        </div>
+    </div>
+    <!-- </div> -->
+
+    <!-- FASTER RESPONSE CALCULATOR FORM -->
+
+    <div class="container">
+        <div class="row">
+            <div class="formTitle col-12">
+                <h4>FASTER RESPONSE CALCULATOR</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="fasterResCal" class="container formSheet">
+        <form>
+            <div class="row hidden-xs-down hidden-sm-down">
+                <div class="col-12 col-md-3">
+
+                </div>
+                <div class="numbers col-6 col-md-3 ">
+                    Current Leads
+                </div>
+                <div class="numbers col-6 col-md-3">
+                    SEO/Website
+                </div>
+            </div>
+
+            <div id="generate" class="row">
+                <div class="col-12 col-md-3">
+                    <label for="generate">How many leads are you generating now?</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="generateCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="generateSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Total Leads/Mo
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="closeContract">How many contracts do you close every month? <em>(percentage)</em></label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" onchange="inputValue()" id="closeContractCL" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" onchange="inputValue()" id="closeContractSW" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Current Close Ratio
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="newContract">The number of new contracts every month</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="newContractCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="newContractSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Leads Closed
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="numLostContract">The number of lost contracts (why?)</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="numLostContractCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="numLostContractSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Leads Unclosed
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="lostContract">How many of those lost contracts are due to slow response, lack of Self
+                        Service?</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" onchange="inputValue()" id="lostContractCL" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" onchange="inputValue()" id="lostContractSW" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Faster Response %
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="numFastContract">The number of contracts resulting from faster response/self service</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="numFastContractCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="numFastContractSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Faster Response Contracts/Mo
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="contractHauler">How much is a contract worth to the hauler?</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" onchange="inputValue()" id="contractHaulerCL" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" onchange="inputValue()" id="contractHaulerSW" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Value of Contracts
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="totalBenefit"> Total benefit with faster response "Buy Now" button</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalBenefitCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalBenefitSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Value of Faster Response/Mo
+                    </span>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+
+    <!-- SHIFTING CUSTOMERS TO SELF SERVICE FORM -->
+
+    <div class="container">
+        <div class="row">
+            <div class="formTitle col-12">
+                <h4>SHIFTING CUSTOMERS TO SELF SERVICE</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="shiftingCus" class="container formSheet">
+        <form>
+            <div class="row hidden-xs-down hidden-sm-down">
+                <div class="col-12 col-md-3">
+
+                </div>
+                <div class="numbers col-6 col-md-3 ">
+                    Current Leads
+                </div>
+                <div class="numbers col-6 col-md-3">
+                    SEO/Website
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="customerSelfServ">How many customers would rather self-service (house deal/no sales
+                        commission)</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="customerSelfServCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="customerSelfServSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        % Shift from Sales to Self Service
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="contractShift">The number of contracts shifted from commission to non-commission</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="contractShiftCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="contractShiftSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Number of Contracts/Leads Shifted
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="payTeam">The Amount you pay your sales team per contract, Labor + Burden</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" onchange="inputValue()" id="payTeamCL" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" onchange="inputValue()" id="payTeamSW" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Current Sales Commission/Sales Cost
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="totalSavedByCus">Total saved by customers to Self-Service Sales</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalSavedByCusCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalSavedByCusSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Dollars Saved from Shifted Sales/Mo
+                    </span>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <!-- MOVE OUT RE-CAPTURE CALCULATOR -->
+
+    <div class="container">
+        <div class="row">
+            <div class="formTitle col-12">
+                <h4>MOVE OUT RE-CAPTURE CALCULATOR</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="moveOutRecap" class="container formSheet">
+        <form>
+            <div class="row hidden-xs-down hidden-sm-down">
+                <div class="col-12 col-md-3">
+
+                </div>
+                <div class="numbers col-6 col-md-3 ">
+                    Current Leads
+                </div>
+                <div class="numbers col-6 col-md-3">
+                    SEO/Website
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="customerMoveOut">How many customers move out monthly (churn)?</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="customerMoveOutCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="customerMoveOutSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Number of Move Outs/Mo
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="haulerCurrMoveOut">What is the Hauler's Current Move Out Re-Capture percentage?</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="haulerCurrMoveOutCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="haulerCurrMoveOutSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Current Re-Capture Percentage
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="improvedRecapture">What is the improved Re-Capture percentage (because RouteKeeper is
+                        easy)</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="improvedRecaptureCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="improvedRecaptureSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Improved Re-Capture via RouteKeeper
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="percIncressGross">The percent increase, gross</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="percIncressGrossCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="percIncressGrossSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Flip vs Current Difference
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="flipContractLost">Flip Contracts otherwise lost -the system made Re-Capture easy for
+                        the customer</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="flipContractLostCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="flipContractLostSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Number of New Flip Contracts
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="valueNewFlipBusiness">Value of New Flip Business otherwise lost</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="valueNewFlipBusinessCL" placeholder="Current Leads"
+                        disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="valueNewFlipBusinessSW" placeholder="SEO/Website"
+                        disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Flip Contract New Customer Dollars
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="numbFlipContract">The Number of Flip Contracts per month</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="numbFlipContractCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="numbFlipContractSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Number of Flip Contracts
+                    </span>
+                </div>
+            </div>
+
+            <!-- hauler -->
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="haulerCostToRecapture">The Hauler Cost to Re-Capture a Move Out</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="haulerCostToRecaptureCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="haulerCostToRecaptureSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Cost of Sale/Re-Sale (marketing)
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="marketAndSaleSave">Marketing and Sales dollars saved from the Flip System</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="marketAndSaleSaveCL" placeholder="Current Leads"
+                        disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="marketAndSaleSaveSW" placeholder="SEO/Website" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Dollars Saved via Flip Contract System
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="totalSavedViaRoute">Total Saved via RouteKeeper System</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalSavedViaRouteCL" placeholder="Current Leads"
+                        disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalSavedViaRouteSW" placeholder="SEO/Website" disabled>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+
+    <!-- ADDITIONAL SAVINGS (MONTHLY) -->
+
+    <div class="container">
+        <div class="row">
+            <div class="formTitle col-12">
+                <h4>ADDITIONAL SAVINGS (monthly)</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="addSavings" class="container formSheet">
+        <form>
+            <div class="row hidden-xs-down hidden-sm-down">
+                <div class="col-12 col-md-3">
+
+                </div>
+                <div class="numbers col-6 col-md-3 ">
+                    Current Leads
+                </div>
+                <div class="numbers col-6 col-md-3">
+                    SEO/Website
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="saveFocusinRoute">How many dollars will you save by focusing your marketing budget in
+                        route?</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="saveFocusinRouteCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="saveFocusinRouteSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        FOCUSED MARKETING
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="densityIncreasesSave">As density increases, cost per pick up decreases. How much do you
+                        save?</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="densityIncreasesSaveCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="densityIncreasesSaveSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        INCREASED ROUTE DENSITY
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="saveReduced">How much do you save: reduced dual entry, instant cart work orders,
+                        billing and op</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="saveReducedCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="saveReducedSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        DATA EFFICIENCY
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="customerGain">How many more customers will you gain due to mobile enabled?</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="customerGainCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="customerGainSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        MOBILE ENABLED SALES
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="valueOfEachCust">Value of each customer</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="valueOfEachCustCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="autoCalc" type="number" id="valueOfEachCustSW" placeholder="SEO/Website" disabled>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="totalMobilCusVal">Total Mobile Customer Value</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalMobilCusValCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalMobilCusValSW" placeholder="SEO/Website" disabled>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="totalAddSavings">Total Additional Savings</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalAddSavingsCL" placeholder="Current Leads" disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalAddSavingsSW" placeholder="SEO/Website" disabled>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="totalPotentialSavings">Total potential monthly savings and revenue to a hauler</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalPotentialSavingsCL" placeholder="Current Leads"
+                        disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <input class="totalCalc" type="number" id="totalPotentialSavingsSW" placeholder="SEO/Website"
+                        disabled>
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        Total Monthly Top and Bottom Line
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="trashBoltExpense">TrashBolt Enterprise Monthly Expense</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="trashBoltExpenseCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="trashBoltExpenseSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        System Cost/Mo
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <label for="webAndSeoStr">Website and SEO Strategy</label>
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    Current Leads
+                </div>
+                <div class="col-6 col-md-3 hidden-md-up">
+                    SEO/Website
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="webAndSeoStrCL" onchange="inputValue()" placeholder="Current Leads">
+                </div>
+                <div class="col-6 col-md-3">
+                    <input type="number" id="webAndSeoStrSW" onchange="inputValue()" placeholder="SEO/Website">
+                </div>
+                <div class="col-6 col-md-3">
+                    <span>
+                        System Cost w/ SEO
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
