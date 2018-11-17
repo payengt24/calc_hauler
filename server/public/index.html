@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="script.js"></script>
+    <script src="client.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
         integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -57,13 +57,13 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="generateCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="generateCL" onchange="calcFastResponseCL()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="generateSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="generateSW" onchange="calcFastResponseSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
-                    <span>
+                    <span>callCalculation
                         Total Leads/Mo
                     </span>
                 </div>
@@ -80,10 +80,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" onchange="inputValue()" id="closeContractCL" placeholder="Current Leads">
+                    <input type="number" onchange="calcFastResponseCL()" id="closeContractCL" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" onchange="inputValue()" id="closeContractSW" placeholder="SEO/Website">
+                    <input type="number" onchange="calcFastResponseSW()" id="closeContractSW" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -150,10 +150,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" onchange="inputValue()" id="lostContractCL" placeholder="Current Leads">
+                    <input type="number" onchange="calcFastResponseCL()" id="lostContractCL" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" onchange="inputValue()" id="lostContractSW" placeholder="SEO/Website">
+                    <input type="number" onchange="calcFastResponseSW()" id="lostContractSW" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -196,10 +196,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" onchange="inputValue()" id="contractHaulerCL" placeholder="Current Leads">
+                    <input type="number" onchange="calcFastResponseCL()" id="contractHaulerCL" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" onchange="inputValue()" id="contractHaulerSW" placeholder="SEO/Website">
+                    <input type="number" onchange="calcFastResponseSW()" id="contractHaulerSW" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -271,10 +271,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="customerSelfServCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="customerSelfServCL" onchange="calcShiftCustomerLD()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="customerSelfServSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="customerSelfServSW" onchange="calcShiftCustomerSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -318,10 +318,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" onchange="inputValue()" id="payTeamCL" placeholder="Current Leads">
+                    <input type="number" onchange="calcShiftCustomerLD()" id="payTeamCL" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" onchange="inputValue()" id="payTeamSW" placeholder="SEO/Website">
+                    <input type="number" onchange="calcShiftCustomerSW()" id="payTeamSW" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -391,10 +391,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="customerMoveOutCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="customerMoveOutCL" onchange="calcMoveOurRecaptureLD()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="customerMoveOutSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="customerMoveOutSW" onchange="calcMoveOurRecaptureSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -414,10 +414,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="haulerCurrMoveOutCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="haulerCurrMoveOutCL" onchange="calcMoveOurRecaptureLD()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="haulerCurrMoveOutSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="haulerCurrMoveOutSW" onchange="calcMoveOurRecaptureSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -438,10 +438,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="improvedRecaptureCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="improvedRecaptureCL" onchange="calcMoveOurRecaptureLD()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="improvedRecaptureSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="improvedRecaptureSW" onchange="calcMoveOurRecaptureSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -546,8 +546,6 @@
                 </div>
             </div>
 
-            <!-- hauler -->
-
             <div class="row">
                 <div class="col-12 col-md-3">
                     <label for="haulerCostToRecapture">The Hauler Cost to Re-Capture a Move Out</label>
@@ -559,10 +557,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="haulerCostToRecaptureCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="haulerCostToRecaptureCL" onchange="calcMoveOurRecaptureLD()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="haulerCostToRecaptureSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="haulerCostToRecaptureSW" onchange="calcMoveOurRecaptureSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -655,10 +653,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="saveFocusinRouteCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="saveFocusinRouteCL" onchange="calcAdditionalSavingsCL()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="saveFocusinRouteSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="saveFocusinRouteSW" onchange="calcAdditionalSavingsSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -679,10 +677,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="densityIncreasesSaveCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="densityIncreasesSaveCL" onchange="calcAdditionalSavingsCL()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="densityIncreasesSaveSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="densityIncreasesSaveSW" onchange="calcAdditionalSavingsSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -703,10 +701,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="saveReducedCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="saveReducedCL" onchange="calcAdditionalSavingsCL()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="saveReducedSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="saveReducedSW" onchange="calcAdditionalSavingsSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -726,10 +724,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="customerGainCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="customerGainCL" onchange="calcAdditionalSavingsCL()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="customerGainSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="customerGainSW" onchange="calcAdditionalSavingsSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -830,10 +828,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="trashBoltExpenseCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="trashBoltExpenseCL" onchange="calcAdditionalSavingsCL()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="trashBoltExpenseSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="trashBoltExpenseSW" onchange="calcAdditionalSavingsSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
@@ -853,10 +851,10 @@
                     SEO/Website
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="webAndSeoStrCL" onchange="inputValue()" placeholder="Current Leads">
+                    <input type="number" id="webAndSeoStrCL" onchange="calcAdditionalSavingsCL()" placeholder="Current Leads">
                 </div>
                 <div class="col-6 col-md-3">
-                    <input type="number" id="webAndSeoStrSW" onchange="inputValue()" placeholder="SEO/Website">
+                    <input type="number" id="webAndSeoStrSW" onchange="calcAdditionalSavingsSW()" placeholder="SEO/Website">
                 </div>
                 <div class="col-6 col-md-3">
                     <span>
