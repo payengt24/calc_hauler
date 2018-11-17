@@ -1,4 +1,4 @@
-//Global Variable
+//Global Variables
 
 //-------FASTER RESPONSE CALCULATOR Current Lead
 let generateCL;
@@ -78,6 +78,9 @@ function calcFastResponseCL() {
         console.log('contractHaulerCL', typeof (contractHaulerCL));
 
         document.getElementById('totalBenefitCL').value = numFastContractCL * contractHaulerCL;
+    } else {
+        document.getElementById('totalBenefitCL').value = '';
+        return
     }
 }
 
@@ -110,9 +113,10 @@ function calcFastResponseSW() {
         return;
     }
     if (contractHaulerSW) {
-        console.log('contractHaulerSW', typeof (contractHaulerSW));
-
         document.getElementById('totalBenefitSW').value = numFastContractSW * contractHaulerSW;
+    } else {
+        document.getElementById('totalBenefitSW').value = '';
+        return
     }
 }
 
@@ -125,14 +129,16 @@ function calcShiftCustomerLD() {
     if (customerSelfServCL) {
         contractShiftCL = customerSelfServCL / 100 * newContractCL;
         document.getElementById('contractShiftCL').value = contractShiftCL;
-    }else {
+    } else {
         document.getElementById('contractShiftCL').value = '';
         return;
     }
-
     if (payTeamCL) {
         totalSavedByCusCL = contractShiftCL * payTeamCL;
         document.getElementById('totalSavedByCusCL').value = totalSavedByCusCL.toFixed(2);
+    }else {
+        document.getElementById('totalSavedByCusCL').value = '';
+        return; 
     }
 
 }
@@ -146,7 +152,7 @@ function calcShiftCustomerSW() {
     if (customerSelfServSW) {
         contractShiftSW = customerSelfServSW / 100 * newContractSW;
         document.getElementById('contractShiftSW').value = contractShiftSW;
-    }else {
+    } else {
         document.getElementById('contractShiftSW').value = '';
         return;
     }
@@ -154,6 +160,9 @@ function calcShiftCustomerSW() {
     if (payTeamSW) {
         totalSavedByCusSW = contractShiftSW * payTeamSW;
         document.getElementById('totalSavedByCusSW').value = totalSavedByCusSW.toFixed(2);
+    }else {
+        document.getElementById('totalSavedByCusSW').value = '';
+        return; 
     }
 
 }
@@ -169,7 +178,7 @@ function calcMoveOurRecaptureLD() {
     if (improvedRecaptureCL && haulerCurrMoveOutCL) {
         percIncressGrossCL = improvedRecaptureCL - haulerCurrMoveOutCL
         document.getElementById('percIncressGrossCL').value = percIncressGrossCL;
-    }else {
+    } else {
         document.getElementById('percIncressGrossCL').value = '';
         return;
     }
@@ -210,7 +219,7 @@ function calcMoveOurRecaptureLD() {
     if (marketAndSaleSaveCL && valueNewFlipBusinessCL) {
         totalSavedViaRouteCL = marketAndSaleSaveCL + valueNewFlipBusinessCL
         document.getElementById('totalSavedViaRouteCL').value = totalSavedViaRouteCL.toFixed(2)
-    } 
+    }
 }
 
 function calcMoveOurRecaptureSW() {
