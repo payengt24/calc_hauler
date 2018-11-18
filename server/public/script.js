@@ -38,6 +38,7 @@ let saveFocusinRouteCL;
 let densityIncreasesSaveCL;
 let saveReducedCL;
 let customerGainCL;
+let valueOfEachCustCL
 
 //-------ADDITIONAL SAVINGS SEO/Website
 
@@ -45,14 +46,25 @@ let saveFocusinRouteSW;
 let densityIncreasesSaveSW;
 let saveReducedSW;
 let customerGainSW;
+let valueOfEachCustSW
 
 function calcFastResponseCL() {
     generateCL = document.getElementById('generateCL').value
     closeContractCL = document.getElementById('closeContractCL').value
     lostContractCL = document.getElementById('lostContractCL').value
     contractHaulerCL = document.getElementById('contractHaulerCL').value
-    console.log('in calcFastResponseCL')
     let newContractCL, numLostContractCL, numFastContractCL;
+
+
+    if(contractHaulerCL) {
+        valueOfEachCustCL = document.getElementById('contractHaulerCL').value
+        document.getElementById('valueOfEachCustCL').value = valueOfEachCustCL;
+    }
+
+    if(contractHaulerCL){
+
+    }
+
     if (generateCL && closeContractCL) {
         newContractCL = generateCL * (closeContractCL / 100);
         numLostContractCL = generateCL - newContractCL;
@@ -75,8 +87,6 @@ function calcFastResponseCL() {
         return;
     }
     if (contractHaulerCL) {
-        console.log('contractHaulerCL', typeof (contractHaulerCL));
-
         document.getElementById('totalBenefitCL').value = numFastContractCL * contractHaulerCL;
     } else {
         document.getElementById('totalBenefitCL').value = '';
@@ -89,8 +99,14 @@ function calcFastResponseSW() {
     closeContractSW = document.getElementById('closeContractSW').value
     lostContractSW = document.getElementById('lostContractSW').value
     contractHaulerSW = document.getElementById('contractHaulerSW').value
-    console.log('in calcFastResponseSW')
     let newContractSW, numLostContractSW, numFastContractSW;
+
+    if(contractHaulerSW) {
+        valueOfEachCustSW = document.getElementById('contractHaulerSW').value
+        document.getElementById('valueOfEachCustSW').value = valueOfEachCustSW;
+    }
+
+
     if (generateSW && closeContractSW) {
         newContractSW = generateSW * (closeContractSW / 100);
         numLostContractSW = generateSW - newContractSW;
@@ -120,7 +136,7 @@ function calcFastResponseSW() {
     }
 }
 
-function calcShiftCustomerLD() {
+function calcShiftCustomerCL() {
     let newContractCL = document.getElementById('newContractCL').value;
     customerSelfServCL = document.getElementById('customerSelfServCL').value;
     payTeamCL = document.getElementById('payTeamCL').value;
@@ -169,7 +185,7 @@ function calcShiftCustomerSW() {
 
 }
 
-function calcMoveOurRecaptureLD() {
+function calcMoveOurRecaptureCL() {
     customerMoveOutCL = document.getElementById('customerMoveOutCL').value
     haulerCurrMoveOutCL = document.getElementById('haulerCurrMoveOutCL').value
     improvedRecaptureCL = document.getElementById('improvedRecaptureCL').value
@@ -314,9 +330,9 @@ function calcAdditionalSavingsCL() {
     totalBenefitCL = document.getElementById('totalBenefitCL').value
     valueNewFlipBusinessCL = document.getElementById('valueNewFlipBusinessCL').value
     totalSavedByCusCL = document.getElementById('totalSavedByCusCL').value
-    valueOfEachCustCL = contractHaulerCL
+    valueOfEachCustCL = document.getElementById('valueOfEachCustCL').value
 
-    document.getElementById('valueOfEachCustCL').value = valueOfEachCustCL
+
 
     let totalMobilCusValCL, totalAddSavingsCL, totalPotentialSavingsCL
     if (customerGainCL && valueOfEachCustCL) {
@@ -354,7 +370,7 @@ function calcAdditionalSavingsSW() {
     totalBenefitSW = document.getElementById('totalBenefitSW').value
     valueNewFlipBusinessSW = document.getElementById('valueNewFlipBusinessSW').value
     totalSavedByCusSW = document.getElementById('totalSavedByCusSW').value
-    valueOfEachCustSW = contractHaulerSW
+    valueOfEachCustSW = document.getElementById('valueOfEachCustSW').value
 
     document.getElementById('valueOfEachCustSW').value = valueOfEachCustSW
 
