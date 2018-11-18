@@ -132,15 +132,15 @@ function calcShiftCustomerLD() {
     } else {
         document.getElementById('contractShiftCL').value = '';
         document.getElementById('totalSavedByCusCL').value = '';
-        
+
         return;
     }
     if (payTeamCL) {
         totalSavedByCusCL = contractShiftCL * payTeamCL;
         document.getElementById('totalSavedByCusCL').value = totalSavedByCusCL.toFixed(2);
-    }else {
+    } else {
         document.getElementById('totalSavedByCusCL').value = '';
-        return; 
+        return;
     }
 
 }
@@ -163,7 +163,7 @@ function calcShiftCustomerSW() {
     if (payTeamSW) {
         totalSavedByCusSW = contractShiftSW * payTeamSW;
         document.getElementById('totalSavedByCusSW').value = totalSavedByCusSW.toFixed(2);
-    }else {
+    } else {
         document.getElementById('totalSavedByCusSW').value = '';
     }
 
@@ -182,6 +182,12 @@ function calcMoveOurRecaptureLD() {
         document.getElementById('percIncressGrossCL').value = percIncressGrossCL;
     } else {
         document.getElementById('percIncressGrossCL').value = '';
+        document.getElementById('flipContractLostCL').value = '';
+        document.getElementById('valueNewFlipBusinessCL').value = '';
+        document.getElementById('numbFlipContractCL').value = '';
+        document.getElementById('marketAndSaleSaveCL').value = '';
+        document.getElementById('totalSavedViaRouteCL').value = '';
+
         return;
     }
 
@@ -190,6 +196,7 @@ function calcMoveOurRecaptureLD() {
         document.getElementById('flipContractLostCL').value = flipContractLostCL.toFixed(2);
     } else {
         document.getElementById('flipContractLostCL').value = '';
+        document.getElementById('valueNewFlipBusinessCL').value = '';
         return;
     }
 
@@ -207,6 +214,7 @@ function calcMoveOurRecaptureLD() {
         document.getElementById('numbFlipContractCL').value = numbFlipContractCL
     } else {
         document.getElementById('numbFlipContractCL').value = '';
+        document.getElementById('marketAndSaleSaveCL').value = '';
         return;
     }
 
@@ -215,13 +223,14 @@ function calcMoveOurRecaptureLD() {
         document.getElementById('marketAndSaleSaveCL').value = marketAndSaleSaveCL
     } else {
         document.getElementById('marketAndSaleSaveCL').value = '';
+        document.getElementById('totalSavedViaRouteCL').value = '';
         return;
     }
 
     if (marketAndSaleSaveCL && valueNewFlipBusinessCL) {
         totalSavedViaRouteCL = marketAndSaleSaveCL + valueNewFlipBusinessCL
         document.getElementById('totalSavedViaRouteCL').value = totalSavedViaRouteCL.toFixed(2)
-    }else {
+    } else {
         document.getElementById('totalSavedViaRouteCL').value = '';
     }
 }
@@ -240,6 +249,11 @@ function calcMoveOurRecaptureSW() {
         document.getElementById('percIncressGrossSW').value = percIncressGrossSW;
     } else {
         document.getElementById('percIncressGrossSW').value = '';
+        document.getElementById('flipContractLostSW').value = '';
+        document.getElementById('valueNewFlipBusinessSW').value = '';
+        document.getElementById('numbFlipContractSW').value = '';
+                document.getElementById('marketAndSaleSaveSW').value = '';
+        document.getElementById('totalSavedViaRouteSW').value = '';
         return;
     }
 
@@ -248,6 +262,7 @@ function calcMoveOurRecaptureSW() {
         document.getElementById('flipContractLostSW').value = flipContractLostSW.toFixed(2);
     } else {
         document.getElementById('flipContractLostSW').value = '';
+        document.getElementById('valueNewFlipBusinessSW').value = '';
         return;
     }
 
@@ -265,22 +280,24 @@ function calcMoveOurRecaptureSW() {
         document.getElementById('numbFlipContractSW').value = numbFlipContractSW
     } else {
         document.getElementById('numbFlipContractSW').value = '';
+        document.getElementById('marketAndSaleSaveSW').value = '';
+        document.getElementById('totalSavedViaRouteSW').value = '';
         return;
     }
-
 
     if (numbFlipContractSW && haulerCostToRecaptureSW) {
         marketAndSaleSaveSW = numbFlipContractSW * haulerCostToRecaptureSW
         document.getElementById('marketAndSaleSaveSW').value = marketAndSaleSaveSW
     } else {
         document.getElementById('marketAndSaleSaveSW').value = '';
+        document.getElementById('totalSavedViaRouteSW').value = '';
         return;
     }
 
     if (marketAndSaleSaveSW && valueNewFlipBusinessSW) {
         totalSavedViaRouteSW = marketAndSaleSaveSW + valueNewFlipBusinessSW
         document.getElementById('totalSavedViaRouteSW').value = totalSavedViaRouteSW.toFixed(2)
-    }else {
+    } else {
         document.getElementById('totalSavedViaRouteSW').value = '';
     }
 
@@ -321,7 +338,7 @@ function calcAdditionalSavingsCL() {
     if (marketAndSaleSaveCL && totalSavedByCusCL && totalBenefitCL && valueNewFlipBusinessCL && saveFocusinRouteCL && densityIncreasesSaveCL && saveReducedCL && totalMobilCusValCL) {
         totalPotentialSavingsCL = parseInt(marketAndSaleSaveCL) + parseInt(totalSavedByCusCL) + parseInt(totalBenefitCL) + parseInt(valueNewFlipBusinessCL) + parseInt(saveFocusinRouteCL) + parseInt(densityIncreasesSaveCL) + parseInt(saveReducedCL) + parseInt(totalMobilCusValCL)
         document.getElementById('totalPotentialSavingsCL').value = totalPotentialSavingsCL
-    }else {
+    } else {
         document.getElementById('totalPotentialSavingsCL').value = '';
     }
 }
@@ -361,7 +378,7 @@ function calcAdditionalSavingsSW() {
     if (marketAndSaleSaveSW && totalSavedByCusSW && totalBenefitSW && valueNewFlipBusinessSW && saveFocusinRouteSW && densityIncreasesSaveSW && saveReducedSW && totalMobilCusValSW) {
         totalPotentialSavingsSW = parseInt(marketAndSaleSaveSW) + parseInt(totalSavedByCusSW) + parseInt(totalBenefitSW) + parseInt(valueNewFlipBusinessSW) + parseInt(saveFocusinRouteSW) + parseInt(densityIncreasesSaveSW) + parseInt(saveReducedSW) + parseInt(totalMobilCusValSW)
         document.getElementById('totalPotentialSavingsSW').value = totalPotentialSavingsSW
-    }else {
+    } else {
         document.getElementById('totalPotentialSavingsSW').value = '';
     }
 }
