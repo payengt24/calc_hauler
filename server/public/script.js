@@ -131,6 +131,8 @@ function calcShiftCustomerLD() {
         document.getElementById('contractShiftCL').value = contractShiftCL;
     } else {
         document.getElementById('contractShiftCL').value = '';
+        document.getElementById('totalSavedByCusCL').value = '';
+        
         return;
     }
     if (payTeamCL) {
@@ -154,6 +156,7 @@ function calcShiftCustomerSW() {
         document.getElementById('contractShiftSW').value = contractShiftSW;
     } else {
         document.getElementById('contractShiftSW').value = '';
+        document.getElementById('totalSavedByCusSW').value = '';
         return;
     }
 
@@ -162,7 +165,6 @@ function calcShiftCustomerSW() {
         document.getElementById('totalSavedByCusSW').value = totalSavedByCusSW.toFixed(2);
     }else {
         document.getElementById('totalSavedByCusSW').value = '';
-        return; 
     }
 
 }
@@ -219,6 +221,8 @@ function calcMoveOurRecaptureLD() {
     if (marketAndSaleSaveCL && valueNewFlipBusinessCL) {
         totalSavedViaRouteCL = marketAndSaleSaveCL + valueNewFlipBusinessCL
         document.getElementById('totalSavedViaRouteCL').value = totalSavedViaRouteCL.toFixed(2)
+    }else {
+        document.getElementById('totalSavedViaRouteCL').value = '';
     }
 }
 
@@ -276,6 +280,8 @@ function calcMoveOurRecaptureSW() {
     if (marketAndSaleSaveSW && valueNewFlipBusinessSW) {
         totalSavedViaRouteSW = marketAndSaleSaveSW + valueNewFlipBusinessSW
         document.getElementById('totalSavedViaRouteSW').value = totalSavedViaRouteSW.toFixed(2)
+    }else {
+        document.getElementById('totalSavedViaRouteSW').value = '';
     }
 
 }
@@ -315,6 +321,8 @@ function calcAdditionalSavingsCL() {
     if (marketAndSaleSaveCL && totalSavedByCusCL && totalBenefitCL && valueNewFlipBusinessCL && saveFocusinRouteCL && densityIncreasesSaveCL && saveReducedCL && totalMobilCusValCL) {
         totalPotentialSavingsCL = parseInt(marketAndSaleSaveCL) + parseInt(totalSavedByCusCL) + parseInt(totalBenefitCL) + parseInt(valueNewFlipBusinessCL) + parseInt(saveFocusinRouteCL) + parseInt(densityIncreasesSaveCL) + parseInt(saveReducedCL) + parseInt(totalMobilCusValCL)
         document.getElementById('totalPotentialSavingsCL').value = totalPotentialSavingsCL
+    }else {
+        document.getElementById('totalPotentialSavingsCL').value = '';
     }
 }
 
@@ -353,5 +361,7 @@ function calcAdditionalSavingsSW() {
     if (marketAndSaleSaveSW && totalSavedByCusSW && totalBenefitSW && valueNewFlipBusinessSW && saveFocusinRouteSW && densityIncreasesSaveSW && saveReducedSW && totalMobilCusValSW) {
         totalPotentialSavingsSW = parseInt(marketAndSaleSaveSW) + parseInt(totalSavedByCusSW) + parseInt(totalBenefitSW) + parseInt(valueNewFlipBusinessSW) + parseInt(saveFocusinRouteSW) + parseInt(densityIncreasesSaveSW) + parseInt(saveReducedSW) + parseInt(totalMobilCusValSW)
         document.getElementById('totalPotentialSavingsSW').value = totalPotentialSavingsSW
+    }else {
+        document.getElementById('totalPotentialSavingsSW').value = '';
     }
 }
