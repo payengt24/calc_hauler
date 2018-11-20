@@ -61,12 +61,8 @@ function calcFastResponseCL() {
     closeContractCL = getElementValue('closeContractCL');
     lostContractCL = getElementValue('lostContractCL');
     contractHaulerCL = getElementValue('contractHaulerCL');
-    let newContractCL, numLostContractCL, numFastContractCL;
 
-    if (contractHaulerCL) {
-        valueOfEachCustCL = getElementValue('contractHaulerCL');
-        setElementValue('valueOfEachCustCL', valueOfEachCustCL);
-    }
+    let newContractCL, numLostContractCL, numFastContractCL;
 
     if (generateCL && closeContractCL) {
         newContractCL = generateCL * (closeContractCL / 100);
@@ -91,9 +87,13 @@ function calcFastResponseCL() {
     if (contractHaulerCL) {
         let totalBenefitCL = numFastContractCL * contractHaulerCL;
         setElementValue('totalBenefitCL', totalBenefitCL);
+        valueOfEachCustCL = getElementValue('contractHaulerCL');
+        setElementValue('valueOfEachCustCL', valueOfEachCustCL);
+        calcMoveOurRecaptureCL()
     } else {
-        let elementID = ['totalBenefitCL'];
+        let elementID = ['totalBenefitCL', 'valueNewFlipBusinessCL'];
         resetValue(elementID);
+
         return
     }
 }
@@ -104,11 +104,6 @@ function calcFastResponseSW() {
     lostContractSW = getElementValue('lostContractSW');
     contractHaulerSW = getElementValue('contractHaulerSW');
     let newContractSW, numLostContractSW, numFastContractSW;
-
-    if (contractHaulerSW) {
-        valueOfEachCustSW = getElementValue('contractHaulerSW');
-        setElementValue('valueOfEachCustSW', valueOfEachCustSW);
-    }
 
     if (generateSW && closeContractSW) {
         newContractSW = generateSW * (closeContractSW / 100);
@@ -133,10 +128,13 @@ function calcFastResponseSW() {
     if (contractHaulerSW) {
         let totalBenefitSW = numFastContractSW * contractHaulerSW;
         setElementValue('totalBenefitSW', totalBenefitSW);
+        valueOfEachCustSW = getElementValue('contractHaulerSW');
+        setElementValue('valueOfEachCustSW', valueOfEachCustSW);
+        calcMoveOurRecaptureCL()
     } else {
-        let elementID = ['totalBenefitSW'];
+        let elementID = ['totalBenefitSW', 'valueNewFlipBusinessSW'];
         resetValue(elementID);
-        return;
+        return
     }
 }
 
@@ -218,7 +216,7 @@ function calcMoveOurRecaptureCL() {
 
     if (flipContractLostCL) {
         let contractHaulerCL = getElementValue('contractHaulerCL');
-        valueNewFlipBusinessCL = flipContractLostCL * contractHaulerCL; //need to look at contractHaulerCL value, if there is no input this should be blank
+        valueNewFlipBusinessCL = flipContractLostCL * contractHaulerCL;
         setElementValue('valueNewFlipBusinessCL', valueNewFlipBusinessCL.toFixed(2));
     } else {
         let elementID = ['valueNewFlipBusinessCL'];
@@ -283,7 +281,7 @@ function calcMoveOurRecaptureSW() {
 
     if (flipContractLostSW) {
         let contractHaulerSW = getElementValue('contractHaulerSW');
-        valueNewFlipBusinessSW = flipContractLostSW * contractHaulerSW; //need to look at contractHaulerSW value, if there is no input this should be blank
+        valueNewFlipBusinessSW = flipContractLostSW * contractHaulerSW;
         setElementValue('valueNewFlipBusinessSW', valueNewFlipBusinessSW.toFixed(2));
     } else {
         let elementID = ['valueNewFlipBusinessSW'];
@@ -376,7 +374,7 @@ function calcAdditionalSavingsSW() {
     valueOfEachCustSW = getElementValue('valueOfEachCustSW');
 
     let totalMobilCusValSW, totalAddSavingsSW, totalPotentialSavingsSW;
-    
+
     if (customerGainSW && valueOfEachCustSW) {
         totalMobilCusValSW = customerGainSW * valueOfEachCustSW;
         setElementValue('totalMobilCusValSW', totalMobilCusValSW);
