@@ -90,9 +90,10 @@ function calcFastResponseCL() {
         setElementValue('totalBenefitCL', totalBenefitCL);
         valueOfEachCustCL = getElementValue('contractHaulerCL');
         setElementValue('valueOfEachCustCL', valueOfEachCustCL);
-        calcMoveOurRecaptureCL()
+        calcMoveOurRecaptureCL();
+        calcAdditionalSavingsCL();
     } else {
-        let elementID = ['totalBenefitCL', 'valueNewFlipBusinessCL'];
+        let elementID = ['totalBenefitCL', 'valueNewFlipBusinessCL', 'valueOfEachCustCL', 'totalMobilCusValCL', 'totalAddSavingsCL'];
         resetValue(elementID);
 
         return
@@ -132,9 +133,10 @@ function calcFastResponseSW() {
         setElementValue('totalBenefitSW', totalBenefitSW);
         valueOfEachCustSW = getElementValue('contractHaulerSW');
         setElementValue('valueOfEachCustSW', valueOfEachCustSW);
-        calcMoveOurRecaptureCL()
+        calcMoveOurRecaptureSW();
+        calcAdditionalSavingsSW();
     } else {
-        let elementID = ['totalBenefitSW', 'valueNewFlipBusinessSW'];
+        let elementID = ['totalBenefitSW', 'valueNewFlipBusinessSW', 'valueOfEachCustSW', 'totalMobilCusValSW', 'totalAddSavingsSW'];
         resetValue(elementID);
         return
     }
@@ -354,7 +356,7 @@ function calcAdditionalSavingsCL() {
         totalMobilCusValCL = customerGainCL * valueOfEachCustCL;
         setElementValue('totalMobilCusValCL', totalMobilCusValCL);
     } else {
-        let elementID = ['totalMobilCusValCL'];
+        let elementID = ['totalMobilCusValCL', 'totalAddSavingsCL'];
         resetValue(elementID);
         return;
     }
@@ -397,7 +399,7 @@ function calcAdditionalSavingsSW() {
         totalMobilCusValSW = customerGainSW * valueOfEachCustSW;
         setElementValue('totalMobilCusValSW', totalMobilCusValSW);
     } else {
-        let elementID = ['totalMobilCusValSW'];
+        let elementID = ['totalMobilCusValSW', 'totalAddSavingsSW'];
         resetValue(elementID);
         return;
     }
