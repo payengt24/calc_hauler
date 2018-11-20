@@ -198,11 +198,19 @@ function calcMoveOurRecaptureCL() {
 
     let percIncressGrossCL, flipContractLostCL, valueNewFlipBusinessCL, numbFlipContractCL, marketAndSaleSaveCL;
 
-    if (improvedRecaptureCL && haulerCurrMoveOutCL) {
-        percIncressGrossCL = improvedRecaptureCL - haulerCurrMoveOutCL;
-        setElementValue('percIncressGrossCL', percIncressGrossCL);
+    if (improvedRecaptureCL) {
+
+        if(haulerCurrMoveOutCL) {
+            percIncressGrossCL = improvedRecaptureCL - haulerCurrMoveOutCL;
+            setElementValue('percIncressGrossCL', percIncressGrossCL);
+        }else{
+            let elementID = ['percIncressGrossCL', 'flipContractLostCL', 'valueNewFlipBusinessCL'];
+            resetValue(elementID);
+            return;
+        }
+
     } else {
-        let elementID = ['percIncressGrossCL', 'flipContractLostCL', 'valueNewFlipBusinessCL'];
+        let elementID = ['percIncressGrossCL', 'flipContractLostCL', 'valueNewFlipBusinessCL', 'marketAndSaleSaveCL', 'numbFlipContractCL', 'totalSavedViaRouteCL'];
         resetValue(elementID);
         return;
     }
@@ -211,7 +219,7 @@ function calcMoveOurRecaptureCL() {
         flipContractLostCL = percIncressGrossCL / 100 * customerMoveOutCL;
         setElementValue('flipContractLostCL', flipContractLostCL.toFixed(2));
     } else {
-        let elementID = ['flipContractLostCL', 'valueNewFlipBusinessCL', 'numbFlipContractCL', 'marketAndSaleSaveCL', 'totalSavedViaRouteCL'];
+        let elementID = ['flipContractLostCL', 'valueNewFlipBusinessCL', 'numbFlipContractCL', 'marketAndSaleSaveCL', 'totalSavedViaRouteCL', 'totalSavedViaRouteCL'];
         resetValue(elementID);
         return;
     }
@@ -226,11 +234,11 @@ function calcMoveOurRecaptureCL() {
         return;
     }
 
-    if (improvedRecaptureCL && customerMoveOutCL) {
+    if (customerMoveOutCL) {
         numbFlipContractCL = (improvedRecaptureCL / 100) * customerMoveOutCL;
         setElementValue('numbFlipContractCL', numbFlipContractCL);
     } else {
-        let elementID = ['numbFlipContractCL', 'marketAndSaleSaveCL', 'totalSavedViaRouteCL'];
+        let elementID = ['numbFlipContractCL', 'marketAndSaleSaveCL', 'totalSavedViaRouteCL', 'totalSavedViaRouteCL'];
         resetValue(elementID);
         return;
     }
@@ -263,11 +271,19 @@ function calcMoveOurRecaptureSW() {
 
     let percIncressGrossSW, flipContractLostSW, valueNewFlipBusinessSW, numbFlipContractSW, marketAndSaleSaveSW;
 
-    if (improvedRecaptureSW && haulerCurrMoveOutSW) {
-        percIncressGrossSW = improvedRecaptureSW - haulerCurrMoveOutSW;
-        setElementValue('percIncressGrossSW', percIncressGrossSW);
+    if (improvedRecaptureSW) {
+
+        if(haulerCurrMoveOutSW) {
+            percIncressGrossSW = improvedRecaptureSW - haulerCurrMoveOutSW;
+            setElementValue('percIncressGrossSW', percIncressGrossSW);
+        }else{
+            let elementID = ['percIncressGrossSW', 'flipContractLostSW', 'valueNewFlipBusinessSW'];
+            resetValue(elementID);
+            return;
+        }
+
     } else {
-        let elementID = ['percIncressGrossSW', 'flipContractLostSW', 'valueNewFlipBusinessSW'];
+        let elementID = ['percIncressGrossSW', 'flipContractLostSW', 'valueNewFlipBusinessSW', 'marketAndSaleSaveSW', 'numbFlipContractSW', 'totalSavedViaRouteSW'];
         resetValue(elementID);
         return;
     }
@@ -276,7 +292,7 @@ function calcMoveOurRecaptureSW() {
         flipContractLostSW = percIncressGrossSW / 100 * customerMoveOutSW;
         setElementValue('flipContractLostSW', flipContractLostSW.toFixed(2));
     } else {
-        let elementID = ['flipContractLostSW', 'valueNewFlipBusinessSW', 'numbFlipContractSW', 'marketAndSaleSaveSW', 'totalSavedViaRouteSW'];
+        let elementID = ['flipContractLostSW', 'valueNewFlipBusinessSW', 'numbFlipContractSW', 'marketAndSaleSaveSW', 'totalSavedViaRouteSW', 'totalSavedViaRouteSW'];
         resetValue(elementID);
         return;
     }
@@ -291,11 +307,11 @@ function calcMoveOurRecaptureSW() {
         return;
     }
 
-    if (improvedRecaptureSW && customerMoveOutSW) {
+    if (customerMoveOutSW) {
         numbFlipContractSW = (improvedRecaptureSW / 100) * customerMoveOutSW;
         setElementValue('numbFlipContractSW', numbFlipContractSW);
     } else {
-        let elementID = ['numbFlipContractSW', 'marketAndSaleSaveSW', 'totalSavedViaRouteSW'];
+        let elementID = ['numbFlipContractSW', 'marketAndSaleSaveSW', 'totalSavedViaRouteSW', 'totalSavedViaRouteSW'];
         resetValue(elementID);
         return;
     }
