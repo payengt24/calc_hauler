@@ -69,8 +69,9 @@ function calcFastResponseCL() {
         numLostContractCL = generateCL - newContractCL
         setElementValue('newContractCL', newContractCL);
         setElementValue('numLostContractCL', numLostContractCL);
+        calcShiftCustomerCL()
     } else {
-        let elementID = ['newContractCL', 'numLostContractCL', 'numFastContractCL', 'totalBenefitCL'];
+        let elementID = ['newContractCL', 'numLostContractCL', 'numFastContractCL', 'totalBenefitCL', 'contractShiftCL', 'totalSavedByCusCL'];
         resetValue(elementID);
         return;
     }
@@ -110,8 +111,9 @@ function calcFastResponseSW() {
         numLostContractSW = generateSW - newContractSW;
         setElementValue('newContractSW', newContractSW);
         setElementValue('numLostContractSW', numLostContractSW);
+        calcShiftCustomerSW()
     } else {
-        let elementID = ['newContractSW', 'numLostContractSW', 'numFastContractSW', 'totalBenefitSW']
+        let elementID = ['newContractSW', 'numLostContractSW', 'numFastContractSW', 'totalBenefitSW', 'contractShiftSW', 'totalSavedByCusSW']
         resetValue(elementID);
         return;
     }
