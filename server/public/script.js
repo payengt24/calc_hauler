@@ -71,18 +71,14 @@ function calcFastResponseCL() {
         setElementValue('numLostContractCL', numLostContractCL);
         calcShiftCustomerCL()
     } else {
-        let elementID = ['newContractCL', 'numLostContractCL', 'numFastContractCL', 'totalBenefitCL', 'contractShiftCL', 'totalSavedByCusCL', 'totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['newContractCL', 'numLostContractCL', 'numFastContractCL', 'totalBenefitCL', 'contractShiftCL', 'totalSavedByCusCL', 'totalPotentialSavingsCL']);
     }
 
     if (lostContractCL) {
         numFastContractCL = lostContractCL * numLostContractCL / 100;
         setElementValue('numFastContractCL', numFastContractCL);
     } else {
-        let elementID = ['numFastContractCL', 'totalBenefitCL', 'totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['numFastContractCL', 'totalBenefitCL', 'totalPotentialSavingsCL']); 
     }
 
     if (contractHaulerCL) {
@@ -93,9 +89,7 @@ function calcFastResponseCL() {
         calcMoveOurRecaptureCL();
         calcAdditionalSavingsCL();
     } else {
-        let elementID = ['totalBenefitCL', 'valueNewFlipBusinessCL', 'valueOfEachCustCL', 'totalMobilCusValCL', 'totalAddSavingsCL', 'totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return
+        return resetValue(['totalBenefitCL', 'valueNewFlipBusinessCL', 'valueOfEachCustCL', 'totalMobilCusValCL', 'totalAddSavingsCL', 'totalPotentialSavingsCL']);
     }
 }
 
@@ -113,18 +107,14 @@ function calcFastResponseSW() {
         setElementValue('numLostContractSW', numLostContractSW);
         calcShiftCustomerSW()
     } else {
-        let elementID = ['newContractSW', 'numLostContractSW', 'numFastContractSW', 'totalBenefitSW', 'contractShiftSW', 'totalSavedByCusSW', 'totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['newContractSW', 'numLostContractSW', 'numFastContractSW', 'totalBenefitSW', 'contractShiftSW', 'totalSavedByCusSW', 'totalPotentialSavingsSW']); 
     }
 
     if (lostContractSW) {
         numFastContractSW = lostContractSW * numLostContractSW / 100;
         setElementValue('numFastContractSW', numFastContractSW);
     } else {
-        let elementID = ['numFastContractSW', 'totalBenefitSW', 'totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['numFastContractSW', 'totalBenefitSW', 'totalPotentialSavingsSW']);   
     }
 
     if (contractHaulerSW) {
@@ -135,9 +125,7 @@ function calcFastResponseSW() {
         calcMoveOurRecaptureSW();
         calcAdditionalSavingsSW();
     } else {
-        let elementID = ['totalBenefitSW', 'valueNewFlipBusinessSW', 'valueOfEachCustSW', 'totalMobilCusValSW', 'totalAddSavingsSW', 'totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return
+        return resetValue(['totalBenefitSW', 'valueNewFlipBusinessSW', 'valueOfEachCustSW', 'totalMobilCusValSW', 'totalAddSavingsSW', 'totalPotentialSavingsSW']); 
     }
 }
 
@@ -151,9 +139,7 @@ function calcShiftCustomerCL() {
         contractShiftCL = customerSelfServCL / 100 * newContractCL;
         setElementValue('contractShiftCL', contractShiftCL);
     } else {
-        let elementID = ['contractShiftCL', 'totalSavedByCusCL', 'totalPotentialSavingsCL']
-        resetValue(elementID);
-        return;
+        return resetValue(['contractShiftCL', 'totalSavedByCusCL', 'totalPotentialSavingsCL']);
     }
 
     if (payTeamCL) {
@@ -161,9 +147,7 @@ function calcShiftCustomerCL() {
         setElementValue('totalSavedByCusCL', totalSavedByCusCL.toFixed(2));
         calcAdditionalSavingsCL()
     } else {
-        let elementID = ['totalSavedByCusCL', 'totalPotentialSavingsCL']
-        resetValue(elementID);
-        return;
+        return resetValue(['totalSavedByCusCL', 'totalPotentialSavingsCL']);
     }
 }
 
@@ -177,9 +161,7 @@ function calcShiftCustomerSW() {
         contractShiftSW = customerSelfServSW / 100 * newContractSW;
         setElementValue('contractShiftSW', contractShiftSW);
     } else {
-        let elementID = ['contractShiftSW', 'totalSavedByCusSW', 'totalPotentialSavingsSW']
-        resetValue(elementID);
-        return;
+        return resetValue(['contractShiftSW', 'totalSavedByCusSW', 'totalPotentialSavingsSW']);
     }
 
     if (payTeamSW) {
@@ -187,9 +169,7 @@ function calcShiftCustomerSW() {
         setElementValue('totalSavedByCusSW', totalSavedByCusSW.toFixed(2));
         calcAdditionalSavingsSW()
     } else {
-        let elementID = ['totalSavedByCusSW', 'totalPotentialSavingsSW']
-        resetValue(elementID);
-        return;
+        return resetValue(['totalSavedByCusSW', 'totalPotentialSavingsSW']);
     }
 }
 
@@ -207,24 +187,21 @@ function calcMoveOurRecaptureCL() {
             percIncressGrossCL = improvedRecaptureCL - haulerCurrMoveOutCL;
             setElementValue('percIncressGrossCL', percIncressGrossCL);
         } else {
-            let elementID = ['percIncressGrossCL', 'flipContractLostCL', 'valueNewFlipBusinessCL', 'totalPotentialSavingsCL'];
-            resetValue(elementID);
-            return;
+            return resetValue(['percIncressGrossCL', 'flipContractLostCL', 'valueNewFlipBusinessCL', 'totalPotentialSavingsCL']);
+            
         }
 
     } else {
-        let elementID = ['percIncressGrossCL', 'flipContractLostCL', 'valueNewFlipBusinessCL', 'marketAndSaleSaveCL', 'numbFlipContractCL', 'totalSavedViaRouteCL', 'totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['percIncressGrossCL', 'flipContractLostCL', 'valueNewFlipBusinessCL', 'marketAndSaleSaveCL', 'numbFlipContractCL', 'totalSavedViaRouteCL', 'totalPotentialSavingsCL']);
+        
     }
 
     if (percIncressGrossCL && customerMoveOutCL) {
         flipContractLostCL = percIncressGrossCL / 100 * customerMoveOutCL;
         setElementValue('flipContractLostCL', flipContractLostCL.toFixed(2));
     } else {
-        let elementID = ['flipContractLostCL', 'valueNewFlipBusinessCL', 'numbFlipContractCL', 'marketAndSaleSaveCL', 'totalSavedViaRouteCL', 'totalSavedViaRouteCL', 'totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['flipContractLostCL', 'valueNewFlipBusinessCL', 'numbFlipContractCL', 'marketAndSaleSaveCL', 'totalSavedViaRouteCL', 'totalSavedViaRouteCL', 'totalPotentialSavingsCL']);
+        
     }
 
     if (flipContractLostCL) {
@@ -233,18 +210,15 @@ function calcMoveOurRecaptureCL() {
         setElementValue('valueNewFlipBusinessCL', valueNewFlipBusinessCL.toFixed(2));
         calcAdditionalSavingsCL()
     } else {
-        let elementID = ['valueNewFlipBusinessCL', 'totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['valueNewFlipBusinessCL', 'totalPotentialSavingsCL']);
     }
 
     if (customerMoveOutCL) {
         numbFlipContractCL = (improvedRecaptureCL / 100) * customerMoveOutCL;
         setElementValue('numbFlipContractCL', numbFlipContractCL);
     } else {
-        let elementID = ['numbFlipContractCL', 'marketAndSaleSaveCL', 'totalSavedViaRouteCL', 'totalSavedViaRouteCL', 'totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['numbFlipContractCL', 'marketAndSaleSaveCL', 'totalSavedViaRouteCL', 'totalSavedViaRouteCL', 'totalPotentialSavingsCL']);
+
     }
 
     if (numbFlipContractCL && haulerCostToRecaptureCL) {
@@ -252,18 +226,15 @@ function calcMoveOurRecaptureCL() {
         setElementValue('marketAndSaleSaveCL', marketAndSaleSaveCL);
         calcAdditionalSavingsCL()
     } else {
-        let elementID = ['marketAndSaleSaveCL', 'totalSavedViaRouteCL', 'totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['marketAndSaleSaveCL', 'totalSavedViaRouteCL', 'totalPotentialSavingsCL']);
+        
     }
 
     if (marketAndSaleSaveCL && valueNewFlipBusinessCL) {
         totalSavedViaRouteCL = marketAndSaleSaveCL + valueNewFlipBusinessCL;
         setElementValue('totalSavedViaRouteCL', totalSavedViaRouteCL.toFixed(2));
     } else {
-        let elementID = ['totalSavedViaRouteCL'];
-        resetValue(elementID);
-        return;
+        return resetValue('totalSavedViaRouteCL');   
     }
 }
 
@@ -282,24 +253,21 @@ function calcMoveOurRecaptureSW() {
             percIncressGrossSW = improvedRecaptureSW - haulerCurrMoveOutSW;
             setElementValue('percIncressGrossSW', percIncressGrossSW);
         } else {
-            let elementID = ['percIncressGrossSW', 'flipContractLostSW', 'valueNewFlipBusinessSW', 'totalPotentialSavingsSW'];
-            resetValue(elementID);
-            return;
+            return resetValue(['percIncressGrossSW', 'flipContractLostSW', 'valueNewFlipBusinessSW', 'totalPotentialSavingsSW']);
+            
         }
 
     } else {
-        let elementID = ['percIncressGrossSW', 'flipContractLostSW', 'valueNewFlipBusinessSW', 'marketAndSaleSaveSW', 'numbFlipContractSW', 'totalSavedViaRouteSW', 'totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['percIncressGrossSW', 'flipContractLostSW', 'valueNewFlipBusinessSW', 'marketAndSaleSaveSW', 'numbFlipContractSW', 'totalSavedViaRouteSW', 'totalPotentialSavingsSW']);
+        
     }
 
     if (percIncressGrossSW && customerMoveOutSW) {
         flipContractLostSW = percIncressGrossSW / 100 * customerMoveOutSW;
         setElementValue('flipContractLostSW', flipContractLostSW.toFixed(2));
     } else {
-        let elementID = ['flipContractLostSW', 'valueNewFlipBusinessSW', 'numbFlipContractSW', 'marketAndSaleSaveSW', 'totalSavedViaRouteSW', 'totalSavedViaRouteSW', 'totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['flipContractLostSW', 'valueNewFlipBusinessSW', 'numbFlipContractSW', 'marketAndSaleSaveSW', 'totalSavedViaRouteSW', 'totalSavedViaRouteSW', 'totalPotentialSavingsSW']);
+        
     }
 
     if (flipContractLostSW) {
@@ -308,18 +276,15 @@ function calcMoveOurRecaptureSW() {
         setElementValue('valueNewFlipBusinessSW', valueNewFlipBusinessSW.toFixed(2));
         calcAdditionalSavingsSW()
     } else {
-        let elementID = ['valueNewFlipBusinessSW', 'totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['valueNewFlipBusinessSW', 'totalPotentialSavingsSW']);
     }
 
     if (customerMoveOutSW) {
         numbFlipContractSW = (improvedRecaptureSW / 100) * customerMoveOutSW;
         setElementValue('numbFlipContractSW', numbFlipContractSW);
     } else {
-        let elementID = ['numbFlipContractSW', 'marketAndSaleSaveSW', 'totalSavedViaRouteSW', 'totalSavedViaRouteSW', 'totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['numbFlipContractSW', 'marketAndSaleSaveSW', 'totalSavedViaRouteSW', 'totalSavedViaRouteSW', 'totalPotentialSavingsSW']);
+
     }
 
     if (numbFlipContractSW && haulerCostToRecaptureSW) {
@@ -327,18 +292,15 @@ function calcMoveOurRecaptureSW() {
         setElementValue('marketAndSaleSaveSW', marketAndSaleSaveSW);
         calcAdditionalSavingsSW()
     } else {
-        let elementID = ['marketAndSaleSaveSW', 'totalSavedViaRouteSW', 'totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['marketAndSaleSaveSW', 'totalSavedViaRouteSW', 'totalPotentialSavingsSW']);
+        
     }
 
     if (marketAndSaleSaveSW && valueNewFlipBusinessSW) {
         totalSavedViaRouteSW = marketAndSaleSaveSW + valueNewFlipBusinessSW;
         setElementValue('totalSavedViaRouteSW', totalSavedViaRouteSW.toFixed(2));
     } else {
-        let elementID = ['totalSavedViaRouteSW'];
-        resetValue(elementID);
-        return;
+        return resetValue('totalSavedViaRouteSW');   
     }
 }
 
@@ -363,33 +325,27 @@ function calcAdditionalSavingsCL() {
             totalMobilCusValCL = customerGainCL * valueOfEachCustCL;
             setElementValue('totalMobilCusValCL', totalMobilCusValCL);
         } else {
-            let elementID = ['totalMobilCusValCL', 'totalAddSavingsCL'];
-            resetValue(elementID);
-            return;
+            return resetValue(['totalMobilCusValCL', 'totalAddSavingsCL']);
+            
         }
 
     } else {
-        let elementID = ['totalPotentialSavingsCL', 'totalAddSavingsCL', 'totalMobilCusValCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['totalPotentialSavingsCL', 'totalAddSavingsCL', 'totalMobilCusValCL']);
     }
 
     if (totalMobilCusValCL && saveReducedCL && densityIncreasesSaveCL && saveFocusinRouteCL) {
         totalAddSavingsCL = parseInt(totalMobilCusValCL) + parseInt(saveReducedCL) + parseInt(densityIncreasesSaveCL) + parseInt(saveFocusinRouteCL);
         setElementValue('totalAddSavingsCL', totalAddSavingsCL);
     } else {
-        let elementID = ['totalAddSavingsCL', 'totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['totalAddSavingsCL', 'totalPotentialSavingsCL']);
     }
 
     if (marketAndSaleSaveCL && totalSavedByCusCL && totalBenefitCL && valueNewFlipBusinessCL && saveFocusinRouteCL && densityIncreasesSaveCL && saveReducedCL && totalMobilCusValCL) {
         totalPotentialSavingsCL = parseInt(marketAndSaleSaveCL) + parseInt(totalSavedByCusCL) + parseInt(totalBenefitCL) + parseInt(valueNewFlipBusinessCL) + parseInt(saveFocusinRouteCL) + parseInt(densityIncreasesSaveCL) + parseInt(saveReducedCL) + parseInt(totalMobilCusValCL);
         setElementValue('totalPotentialSavingsCL', totalPotentialSavingsCL);
     } else {
-        let elementID = ['totalPotentialSavingsCL'];
-        resetValue(elementID);
-        return;
+        return resetValue(['totalPotentialSavingsCL']);
+        
     }
 }
 
@@ -414,40 +370,34 @@ function calcAdditionalSavingsSW() {
             totalMobilCusValSW = customerGainSW * valueOfEachCustSW;
             setElementValue('totalMobilCusValSW', totalMobilCusValSW);
         } else {
-            let elementID = ['totalMobilCusValSW', 'totalAddSavingsSW'];
-            resetValue(elementID);
-            return;
+            return resetValue(['totalMobilCusValSW', 'totalAddSavingsSW']);
+            
         }
 
     } else {
-        let elementID = ['totalPotentialSavingsSW', 'totalAddSavingsSW', 'totalMobilCusValSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['totalPotentialSavingsSW', 'totalAddSavingsSW', 'totalMobilCusValSW']);
     }
 
     if (totalMobilCusValSW && saveReducedSW && densityIncreasesSaveSW && saveFocusinRouteSW) {
         totalAddSavingsSW = parseInt(totalMobilCusValSW) + parseInt(saveReducedSW) + parseInt(densityIncreasesSaveSW) + parseInt(saveFocusinRouteSW);
         setElementValue('totalAddSavingsSW', totalAddSavingsSW);
     } else {
-        let elementID = ['totalAddSavingsSW', 'totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['totalAddSavingsSW', 'totalPotentialSavingsSW']);
     }
 
     if (marketAndSaleSaveSW && totalSavedByCusSW && totalBenefitSW && valueNewFlipBusinessSW && saveFocusinRouteSW && densityIncreasesSaveSW && saveReducedSW && totalMobilCusValSW) {
         totalPotentialSavingsSW = parseInt(marketAndSaleSaveSW) + parseInt(totalSavedByCusSW) + parseInt(totalBenefitSW) + parseInt(valueNewFlipBusinessSW) + parseInt(saveFocusinRouteSW) + parseInt(densityIncreasesSaveSW) + parseInt(saveReducedSW) + parseInt(totalMobilCusValSW);
         setElementValue('totalPotentialSavingsSW', totalPotentialSavingsSW);
     } else {
-        let elementID = ['totalPotentialSavingsSW'];
-        resetValue(elementID);
-        return;
+        return resetValue(['totalPotentialSavingsSW']);
+        
     }
 }
 
 function resetValue(elementID) {
-    for (let i = 0; i < elementID.length; i++) {
-        document.getElementById(elementID[i]).value = '';
-    }
+    elementID.forEach(function (id){
+        document.getElementById(id).value = ''
+    })
 }
 
 
